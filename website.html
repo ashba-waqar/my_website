@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduLearn | Simple Educational Website</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: Arial, sans-serif; }
+    body { background: #f4f6f8; color: #333; }
+    header { background: #2c7be5; color: white; padding: 20px; text-align: center; }
+    nav { background: #1f5fbf; padding: 10px; text-align: center; }
+    nav a { color: white; margin: 0 15px; text-decoration: none; font-weight: bold; }
+    nav a:hover { text-decoration: underline; }
+    .container { padding: 30px; }
+    .section { margin-bottom: 40px; }
+    .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .card { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .card h3 { margin-bottom: 10px; color: #2c7be5; }
+    .card button { margin-top: 10px; padding: 8px 12px; border: none; background: #2c7be5; color: white; border-radius: 5px; cursor: pointer; }
+    .card button:hover { background: #1f5fbf; }
+    footer { background: #222; color: #ccc; text-align: center; padding: 15px; }
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>EduLearn</h1>
+  <p>Learn Anytime, Anywhere</p>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#courses">Courses</a>
+  <a href="#quiz">Quiz</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<div class="container">
+
+  <!-- Home Section -->
+  <section id="home" class="section">
+    <h2>Welcome to EduLearn</h2>
+    <p>This is a simple educational website for students to learn basic concepts, watch courses, and attempt quizzes.</p>
+  </section>
+
+  <!-- Courses Section -->
+  <section id="courses" class="section">
+    <h2>Our Courses</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Web Development</h3>
+        <p>Learn HTML, CSS, and JavaScript from scratch.</p>
+        <button onclick="showAlert('Web Development')">Enroll</button>
+      </div>
+      <div class="card">
+        <h3>Database Systems</h3>
+        <p>Understand DBMS concepts, SQL, and design.</p>
+        <button onclick="showAlert('Database Systems')">Enroll</button>
+      </div>
+      <div class="card">
+        <h3>Artificial Intelligence</h3>
+        <p>Basics of AI, agents, and machine learning.</p>
+        <button onclick="showAlert('Artificial Intelligence')">Enroll</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quiz Section -->
+  <section id="quiz" class="section">
+    <h2>Quick Quiz</h2>
+    <p>What does HTML stand for?</p>
+    <button onclick="checkAnswer('a')">A) Hyper Text Markup Language</button><br><br>
+    <button onclick="checkAnswer('b')">B) High Text Machine Language</button><br><br>
+    <button onclick="checkAnswer('c')">C) Hyperlinks Text Mark Language</button>
+    <p id="quizResult" style="margin-top:15px; font-weight:bold;"></p>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section">
+    <h2>Contact Us</h2>
+    <p>Email: info@edulearn.com</p>
+    <p>Phone: +92-300-0000000</p>
+  </section>
+
+</div>
+
+<footer>
+  <p>© 2025 EduLearn. All Rights Reserved.</p>
+</footer>
+
+<script>
+  function showAlert(course) {
+    alert('You have enrolled in ' + course + '!');
+  }
+
+  function checkAnswer(answer) {
+    const result = document.getElementById('quizResult');
+    if (answer === 'a') {
+      result.textContent = 'Correct Answer! 🎉';
+      result.style.color = 'green';
+    } else {
+      result.textContent = 'Wrong Answer. Try Again!';
+      result.style.color = 'red';
+    }
+  }
+</script>
+
+</body>
+</html>
