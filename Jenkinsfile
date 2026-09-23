@@ -1,15 +1,29 @@
 pipeline {
-    agent any
+    agent {
+        docker {
+            image 'node:alpine'
+        }
+    }
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-        stage('Build / Verify') {
+        stage('Verify Agent') {
             steps {
-                sh 'echo "HTML Website Build Successful!"'
+                sh 'node -v'
+                sh 'echo "Running inside Docker container successfully!"'
             }
+        }
+    }
+    post {
+        success {
+            archiveArtifacts artifacts: 'website.html', fingerprint: true
+            echo 'Build was successful! Artifacts archived.'
+        }
+        failure {
+            echo 'Build failed. Sending notification...'
         }
     }
 }
