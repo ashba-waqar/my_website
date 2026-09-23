@@ -1,19 +1,14 @@
 pipeline {
-    agent {
-        docker {
-            image 'node:alpine'
-        }
-    }
+    agent any
     stages {
         stage('Checkout') {
             steps {
                 checkout scm
             }
         }
-        stage('Verify Agent') {
+        stage('Verify') {
             steps {
-                sh 'node -v'
-                sh 'echo "Running inside Docker container successfully!"'
+                sh 'echo "Running pipeline successfully!"'
             }
         }
     }
